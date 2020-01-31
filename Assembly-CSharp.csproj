@@ -125,6 +125,7 @@
     <Compile Include="Assets\Scripts\Junk Scripts that I might need\ThirdPersonCamera.cs" />
     <Compile Include="Assets\Scripts\Pickup.cs" />
     <Compile Include="Assets\Scripts\player.cs" />
+    <Compile Include="Assets\Scripts\PlayerAttackScript.cs" />
     <Compile Include="Assets\Scripts\Portal.cs" />
     <Compile Include="Assets\Scripts\Projectile.cs" />
     <Compile Include="Assets\Scripts\WeaponScriptableObject.cs" />

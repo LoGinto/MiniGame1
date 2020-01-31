@@ -9,7 +9,7 @@ public class Projectile : MonoBehaviour
     /// </summary>
     public float speed = 5f;
     public bool isHoming = false;
-    public float lifeAfterImpacttime = 2f; 
+    public float lifeAfterImpacttime = 0.3f; 
     public Health target = null;//might remove "public" from here
     GameObject instigator = null;
     float damage = 1f;
@@ -37,7 +37,7 @@ public class Projectile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        transform.LookAt(GetAim());
     }
 
     // Update is called once per frame
@@ -48,6 +48,7 @@ public class Projectile : MonoBehaviour
         {
             transform.LookAt(GetAim());
         }
+        
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
     }
     private void OnTriggerEnter(Collider other)
