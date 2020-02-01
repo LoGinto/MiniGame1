@@ -11,46 +11,56 @@ public class PlayerAttackScript : MonoBehaviour
     float damage;
     public float timeBetweenAttack = 1f;
     Health enemyHealth;
-    public GameObject launchOrigin = null;
+    public Transform attackPoint = null;
+    public float attackRange = 0.5f;
+    public LayerMask enemyLayer;
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
-        if (weapon != null)
-        {
-            damage = weapon.GetDamage();
-        }
-        else
-        {
-            damage = 5f;
-        }
+        damage = 5f;
     }
 
     // Update is called once per frame
     void Update()
     {
         Attackin();
+        if(weapon != null)
+        {
+            damage = weapon.GetDamage();
+        }
     }
     private void Attackin()
     {
         if (Input.GetButtonDown("Fire1"))
         {
             StartCoroutine("playerAttackAnim");
-
+            
         }
     }
     void Hit()//animation event
     {
         
         Debug.Log("Player attack is working");
-        if (enemyHealth == null) { Debug.Log("No Enemy Detected"); return; }
+        
         //it is working
-        enemyHealth.TakeDamage(gameObject, damage);//not working, but working against player
+        Collider[] hitEnemies = Physics.OverlapSphere(attackPoint.position, attackRange, enemyLayer);
+        foreach (Collider enemy in hitEnemies)
+        {
+           
+            Debug.Log("I hit enemy ");
+            enemy.GetComponent<Health>().TakeDamage(gameObject,damage);
+        }
+       
     }
     IEnumerator playerAttackAnim()
     {
         animator.SetTrigger("Attack");
         yield return new WaitForSeconds(timeBetweenAttack);
         animator.ResetTrigger("Attack");
+    }
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
 }

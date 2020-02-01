@@ -119,6 +119,7 @@
     <Compile Include="Assets\Scripts\Dialogue.cs" />
     <Compile Include="Assets\Scripts\enemy.cs" />
     <Compile Include="Assets\Scripts\Health.cs" />
+    <Compile Include="Assets\Scripts\Junk Scripts that I might need\CameraZoom.cs" />
     <Compile Include="Assets\Scripts\Junk Scripts that I might need\Inventory.cs" />
     <Compile Include="Assets\Scripts\Junk Scripts that I might need\Item.cs" />
     <Compile Include="Assets\Scripts\Junk Scripts that I might need\Slot.cs" />
@@ -128,6 +129,7 @@
     <Compile Include="Assets\Scripts\PlayerAttackScript.cs" />
     <Compile Include="Assets\Scripts\Portal.cs" />
     <Compile Include="Assets\Scripts\Projectile.cs" />
+    <Compile Include="Assets\Scripts\QuestManager.cs" />
     <Compile Include="Assets\Scripts\WeaponScriptableObject.cs" />
     <Compile Include="Assets\TinyFire VFX\LightControl.cs" />
     <Compile Include="Assets\WorldSkies\Demo\Scripts\LookCamera.cs" />
