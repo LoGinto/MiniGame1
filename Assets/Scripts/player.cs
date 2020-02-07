@@ -6,7 +6,7 @@ public class player : MonoBehaviour
 {
     Animator animator;
     Rigidbody rigidGrav;
-  
+    bool isPlayer = true;
     [SerializeField] float speed = 5f;
     [SerializeField] float jumpheight = 4f;
 
@@ -52,5 +52,9 @@ public class player : MonoBehaviour
             animator.SetBool("Is_Running", false);
         }
         
+    }
+    public bool ISplayer()
+    {
+        return isPlayer;
     }
 }

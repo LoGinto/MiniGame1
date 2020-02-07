@@ -14,7 +14,7 @@ public class Projectile : MonoBehaviour
     GameObject instigator = null;
     float damage = 1f;
     public float maximumLifeTime = 7f;
-    GameObject impactVFX = null;
+    [SerializeField] GameObject impactVFX = null;
     public GameObject[] destructionArray = null;
     public void SetTarget(Health target, GameObject instigator, float damage)
     {

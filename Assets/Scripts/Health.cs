@@ -23,9 +23,25 @@ public class Health : MonoBehaviour
         }
     }
     private void Die()
-    {  
+    {    
+        if(gameObject.tag == "Enemy")
+        {
+            gameObject.GetComponent<enemy>().enabled = false;
+            gameObject.GetComponent<EnemyPatrol>().enabled = false;
+            gameObject.GetComponent<DamageDealer>().enabled = false;
+        }
+        else if(gameObject.tag == "Player")
+        {
+            gameObject.GetComponent<player>().enabled = false;
+            gameObject.GetComponent<PlayerAttackScript>().enabled = false;
+            //TO DO: ADD death picture. 
+            //TO DO: Make a menu(for death as well) 
+        }
+
+
         animator.SetTrigger("Die");
         isDead = true; 
+       
     }
 
     

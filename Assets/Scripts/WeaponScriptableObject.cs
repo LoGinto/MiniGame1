@@ -12,7 +12,7 @@ public class WeaponScriptableObject :ScriptableObject
     public bool isRightHanded = true;
     const string weaponName = "Weapon";
     public Projectile projectile = null;
-    
+    public bool thereisProjectile = false;
 
     public void LaunchProjectile(Vector3 origin,Health target,GameObject instigator,float calcDamage)
     {

@@ -114,6 +114,7 @@ public class QuestManager : MonoBehaviour
             questFinished = true;
             Debug.Log("Finished Quest");
             //Reward System to do
+            Destroy(gameObject, 2f);
         }
     }
     public bool QuestIsFinished()

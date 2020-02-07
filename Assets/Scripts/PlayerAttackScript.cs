@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class PlayerAttackScript : MonoBehaviour
 {
+    public Transform lookAtSHoot = null;
+    public Transform shootPoint = null;
     public float attackSpeed = 2f;
     public WeaponScriptableObject weapon = null;
-    public bool hasShootingWeapon = false;
+    //public bool hasShootingWeapon = false;
     Animator animator;
     float damage;
     public float timeBetweenAttack = 1f;
@@ -43,14 +45,16 @@ public class PlayerAttackScript : MonoBehaviour
         
         Debug.Log("Player attack is working");
         
-        //it is working
-        Collider[] hitEnemies = Physics.OverlapSphere(attackPoint.position, attackRange, enemyLayer);
-        foreach (Collider enemy in hitEnemies)
-        {
-           
-            Debug.Log("I hit enemy ");
-            enemy.GetComponent<Health>().TakeDamage(gameObject,damage);
-        }
+            //it is working
+            Collider[] hitEnemies = Physics.OverlapSphere(attackPoint.position, attackRange, enemyLayer);
+            foreach (Collider enemy in hitEnemies)
+            {
+
+                Debug.Log("I hit enemy ");
+                enemy.GetComponent<Health>().TakeDamage(gameObject, damage);
+            }
+        
+        
        
     }
     IEnumerator playerAttackAnim()

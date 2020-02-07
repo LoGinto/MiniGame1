@@ -10,11 +10,13 @@ public class enemy : MonoBehaviour
     public Transform leftHand = null;
     //public float damage = 5f;
     public float moveSpeed = 4f;
+    bool isEnemy = true;
     public Transform playerr;
     public float chaseDistance = 5f;
     public float attackDistance = 1f;
     public float shootDistance = 5f;//not applied for now 
-    public bool hasShootingWeapon = false; 
+    public bool hasShootingWeapon = false;
+    private bool isChasing = false;
     NavMeshAgent agent;
     Animator animator;
     float timeSinceLastAttack = Mathf.Infinity;
@@ -89,7 +91,7 @@ public class enemy : MonoBehaviour
             agent.destination = playerr.position;
            
             animator.SetBool("Is_Running", true);
-
+            isChasing = true;
 
         }
         else
@@ -114,6 +116,13 @@ public class enemy : MonoBehaviour
         yield return new WaitForSeconds(timeBetweenAttack);
         animator.ResetTrigger("Attack");
     }
-    
+    public bool ISChasing()
+    {
+        return isChasing;
+    }
+    public bool ISEnemy()
+    {
+        return isEnemy;
+    }
 
 }
