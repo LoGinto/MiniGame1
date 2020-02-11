@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class PlayerAttackScript : MonoBehaviour
 {
-    public Transform lookAtSHoot = null;
-    public Transform shootPoint = null;
+   
     public float attackSpeed = 2f;
     public WeaponScriptableObject weapon = null;
+    
     //public bool hasShootingWeapon = false;
     Animator animator;
     float damage;
